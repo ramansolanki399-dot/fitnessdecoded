@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FITNESS DECODED | The Ultimate Workout & Exercise Encyclopedia</title>
+  <title>FITNESS DECODED | Animated Workout Encyclopedia & Form Guide</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
@@ -21,10 +21,10 @@
             brand: {
               lime: '#CCFF00',
               limeHover: '#B3E600',
-              dark: '#0a0d14',
-              card: '#111622',
-              cardHover: '#181f30',
-              border: '#1f293d'
+              dark: '#080a0f',
+              card: '#0f141f',
+              cardHover: '#161c2b',
+              border: '#1c2538'
             }
           },
           fontFamily: {
@@ -43,12 +43,54 @@
     .text-glow {
       text-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
     }
+    
+    /* Exercise Animation Loops */
+    @keyframes benchPressMove {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(32px); }
+    }
+    @keyframes squatMove {
+      0%, 100% { transform: translateY(0px) scaleY(1); }
+      50% { transform: translateY(28px) scaleY(0.85); }
+    }
+    @keyframes pulldownMove {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(35px); }
+    }
+    @keyframes curlMove {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-55deg); }
+    }
+    @keyframes lateralMove {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-35deg); }
+    }
+    @keyframes crunchMove {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(-10deg); }
+    }
+
+    .anim-bench { animation: benchPressMove 2.2s infinite ease-in-out; }
+    .anim-squat { animation: squatMove 2.5s infinite ease-in-out; transform-origin: bottom center; }
+    .anim-pulldown { animation: pulldownMove 2.4s infinite ease-in-out; }
+    .anim-curl { animation: curlMove 2.0s infinite ease-in-out; transform-origin: 30% 70%; }
+    .anim-lateral { animation: lateralMove 2.2s infinite ease-in-out; transform-origin: 20% 20%; }
+    .anim-abs { animation: crunchMove 2.0s infinite ease-in-out; }
+
+    /* Muscle Active Pulse Highlight */
+    @keyframes muscleGlow {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.95; }
+    }
+    .muscle-highlight {
+      animation: muscleGlow 2.2s infinite ease-in-out;
+    }
   </style>
 </head>
 <body class="bg-brand-dark text-gray-200 font-sans selection:bg-brand-lime selection:text-black antialiased">
 
   <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+  <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
         <div class="w-11 h-11 rounded-xl bg-brand-lime flex items-center justify-center text-brand-dark text-2xl font-black shadow-lg shadow-brand-lime/20">
@@ -58,39 +100,39 @@
           <span class="font-teko text-2xl sm:text-3xl font-bold tracking-wider text-white uppercase leading-none block">
             FITNESS <span class="text-brand-lime">DECODED</span>
           </span>
-          <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">Scientific Gym Encyclopedia</span>
+          <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">Visual Gym Form & Biomechanics</span>
         </div>
       </a>
 
-      <!-- Quick Nav Links -->
+      <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-semibold tracking-wide">
-        <a href="#exercises" class="text-gray-300 hover:text-brand-lime transition">Exercise Library</a>
+        <a href="#exercises" class="text-gray-300 hover:text-brand-lime transition">Visual Library</a>
         <a href="#splits" class="text-gray-300 hover:text-brand-lime transition">Workout Splits</a>
         <a href="#calculator" class="text-gray-300 hover:text-brand-lime transition">Calorie & BMI Tool</a>
       </nav>
 
       <a href="#exercises" class="px-5 py-2.5 rounded-xl bg-brand-lime text-black font-extrabold text-xs uppercase tracking-wider hover:bg-brand-limeHover transition shadow-lg shadow-brand-lime/20 flex items-center gap-2">
-        <i class="fa-solid fa-bolt"></i> Start Training
+        <i class="fa-solid fa-play"></i> Watch Animations
       </a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative py-20 px-4 overflow-hidden border-b border-brand-border">
+  <section class="relative py-16 px-4 overflow-hidden border-b border-brand-border">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-lime/10 via-brand-dark to-brand-dark"></div>
     <div class="relative z-10 max-w-5xl mx-auto text-center">
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-card border border-brand-lime/30 text-brand-lime text-xs uppercase tracking-widest font-bold mb-6">
-        <i class="fa-solid fa-fire"></i> Master Your Form • Maximum Muscle Hypertrophy
+        <i class="fa-solid fa-video"></i> Interactive Visual Movement Guides
       </div>
       <h1 class="font-teko text-5xl sm:text-7xl md:text-8xl font-bold uppercase tracking-tight text-white leading-none mb-6">
-        DECODE EVERY <span class="text-brand-lime text-glow">EXERCISE</span>. <br>BUILD REAL MUSCLE.
+        SEE THE MOVEMENT. <br><span class="text-brand-lime text-glow">PERFECT THE FORM</span>.
       </h1>
       <p class="max-w-2xl mx-auto text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
-        No bro-science. Complete step-by-step biomechanical guide for Chest, Back, Shoulders, Legs, and Arms with proper cues, sets, and rep ranges.
+        Learn how to execute Chest, Back, Shoulder, Leg & Arm workouts with step-by-step animations, biomechanical angles, and target muscle activation cues.
       </p>
 
-      <!-- Search Input Inside Hero -->
-      <div class="max-w-xl mx-auto relative mb-6">
+      <!-- Search Input -->
+      <div class="max-w-xl mx-auto relative mb-4">
         <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
         <input type="text" id="exerciseSearch" placeholder="Search exercises (e.g. Incline Bench, Squat, Lat Pulldown)..." class="w-full bg-brand-card/90 border-2 border-brand-border focus:border-brand-lime rounded-2xl pl-12 pr-4 py-4 text-sm text-white placeholder-gray-500 focus:outline-none transition shadow-2xl">
       </div>
@@ -98,7 +140,7 @@
   </section>
 
   <!-- Rest Timer Widget (Floating Bottom-Left) -->
-  <div class="fixed bottom-6 left-6 z-50 bg-brand-card/95 border border-brand-border backdrop-blur-md p-4 rounded-2xl shadow-2xl flex items-center gap-4">
+  <div class="fixed bottom-6 left-6 z-40 bg-brand-card/95 border border-brand-border backdrop-blur-md p-4 rounded-2xl shadow-2xl flex items-center gap-4">
     <div class="w-12 h-12 rounded-xl bg-brand-lime/10 border border-brand-lime/30 flex items-center justify-center text-brand-lime text-xl font-bold">
       <i class="fa-solid fa-stopwatch"></i>
     </div>
@@ -113,31 +155,40 @@
     </div>
   </div>
 
-  <!-- Main Exercise Library Section -->
+  <!-- Main Exercise Library Section with Animated Cards -->
   <section id="exercises" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
       <div>
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-lime">Encyclopedia</span>
-        <h2 class="font-teko text-4xl sm:text-5xl font-bold text-white uppercase mt-1">Muscle Group Directory</h2>
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-lime">Visual Encyclopedia</span>
+        <h2 class="font-teko text-4xl sm:text-5xl font-bold text-white uppercase mt-1">Exercise Animations & Form Guide</h2>
       </div>
     </div>
 
     <!-- Category Filter Buttons -->
     <div class="flex flex-wrap gap-2.5 mb-10" id="filterTabs">
-      <button onclick="filterExercises('all')" class="cat-btn active px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-lime text-black transition">All</button>
+      <button onclick="filterExercises('all')" class="cat-btn active px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-lime text-black transition">All Body Parts</button>
       <button onclick="filterExercises('chest')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Chest</button>
       <button onclick="filterExercises('back')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Back</button>
       <button onclick="filterExercises('shoulders')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Shoulders</button>
       <button onclick="filterExercises('legs')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Legs</button>
-      <button onclick="filterExercises('arms')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Arms (Bi/Tri)</button>
+      <button onclick="filterExercises('arms')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Arms (Bi & Tri)</button>
       <button onclick="filterExercises('abs')" class="cat-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-card text-gray-300 hover:text-brand-lime border border-brand-border transition">Core / Abs</button>
     </div>
 
     <!-- Exercises Grid Container -->
-    <div id="exerciseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Injected via JavaScript -->
-    </div>
+    <div id="exerciseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
+
+  <!-- POPUP MODAL FOR DEEP DIVE ANIMATED DEMO -->
+  <div id="demoModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-border max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-brand-dark border border-brand-border flex items-center justify-center text-gray-400 hover:text-white transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
   <!-- Popular Workout Splits Section -->
   <section id="splits" class="py-20 bg-brand-dark border-y border-brand-border">
@@ -145,7 +196,7 @@
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-xs font-bold uppercase tracking-widest text-brand-lime">Training Blueprints</span>
         <h2 class="font-teko text-4xl sm:text-5xl font-bold text-white uppercase mt-1">Proven Workout Splits</h2>
-        <p class="text-gray-400 text-sm">Choose the routine that matches your weekly schedule and recovery capacity.</p>
+        <p class="text-gray-400 text-sm">Target each muscle group with optimal frequency and recovery.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -153,7 +204,7 @@
         <div class="bg-brand-card p-8 rounded-2xl border border-brand-border relative">
           <div class="text-xs font-bold uppercase px-3 py-1 bg-brand-lime/10 border border-brand-lime/30 text-brand-lime rounded-full w-max mb-4">6 Days / Week</div>
           <h3 class="font-teko text-3xl font-bold text-white uppercase">Push • Pull • Legs (PPL)</h3>
-          <p class="text-xs text-gray-400 mb-6">Best for intermediate to advanced lifters targeting maximum hypertrophy.</p>
+          <p class="text-xs text-gray-400 mb-6">Best for building pure muscle mass and balance across the physique.</p>
           <ul class="text-xs space-y-2.5 text-gray-300">
             <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Push:</strong> Chest, Front Delts, Triceps</li>
             <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Pull:</strong> Lats, Upper Back, Rear Delts, Biceps</li>
@@ -163,13 +214,13 @@
 
         <!-- Split 2: Arnold Split -->
         <div class="bg-brand-card p-8 rounded-2xl border border-brand-lime/40 relative">
-          <div class="text-xs font-bold uppercase px-3 py-1 bg-brand-lime text-black rounded-full w-max mb-4">The Classic Favorite</div>
-          <h3 class="font-teko text-3xl font-bold text-white uppercase">Arnold Golden Era Split</h3>
-          <p class="text-xs text-gray-400 mb-6">High intensity antagonist superset style for aesthetic shape and pump.</p>
+          <div class="text-xs font-bold uppercase px-3 py-1 bg-brand-lime text-black rounded-full w-max mb-4">The Golden Era</div>
+          <h3 class="font-teko text-3xl font-bold text-white uppercase">Arnold Antagonist Split</h3>
+          <p class="text-xs text-gray-400 mb-6">High volume superset routine for upper-body V-taper and arm thickness.</p>
           <ul class="text-xs space-y-2.5 text-gray-300">
             <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Day 1 & 4:</strong> Chest & Back</li>
-            <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Day 2 & 5:</strong> Shoulders & Arms (Biceps/Triceps)</li>
-            <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Day 3 & 6:</strong> Legs & Lower Back</li>
+            <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Day 2 & 5:</strong> Shoulders & Arms (Bi/Tri)</li>
+            <li class="p-2.5 rounded-lg bg-brand-dark border border-brand-border"><strong class="text-brand-lime">Day 3 & 6:</strong> Legs & Core</li>
           </ul>
         </div>
 
@@ -250,7 +301,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
       <div>
         <div class="font-teko text-2xl font-bold text-white uppercase">FITNESS <span class="text-brand-lime">DECODED</span></div>
-        <p class="text-xs text-gray-500 mt-1">Free scientific workout reference for athletes & gym lifters.</p>
+        <p class="text-xs text-gray-500 mt-1">Biomechanics & Animated Gym Exercise Directory.</p>
       </div>
       <div class="text-xs text-gray-500">
         © 2026 FITNESSDECODED.IN • All Rights Reserved.
@@ -258,145 +309,282 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT: DATA & INTERACTIVITY -->
+  <!-- JAVASCRIPT: DATA & INTERACTIVE VISUAL ENGINE -->
   <script>
-    // Full Exercise Database
     const exercises = [
       {
         id: 1,
         name: "Incline Dumbbell Press",
         category: "chest",
         muscle: "Upper Chest (Clavicular Head) & Front Delts",
-        equipment: "Dumbbells & 30° Incline Bench",
+        equipment: "30° Incline Bench & Pair of Dumbbells",
         setsReps: "3-4 Sets × 8-12 Reps",
-        cue: "Set bench at 30 degrees. Keep chest puffed out, pull shoulder blades back into the bench, and press dumbbells upward without clanking them together at the top.",
-        mistake: "Setting the bench angle too steep (45°+), which shifts work to front shoulders instead of chest.",
-        badge: "Chest Builder"
+        animType: "bench",
+        steps: [
+          "Set the bench angle to 30 degrees (higher shifts tension to shoulders).",
+          "Retract shoulder blades and plant feet flat on the floor.",
+          "Lower dumbbells slowly with elbows at a 45-degree angle to the torso.",
+          "Press upward smoothly, squeezing the upper chest at the top without banging dumbbells."
+        ],
+        mistake: "Bench angle too steep (45°+) or flaring elbows out at 90 degrees.",
+        badge: "Upper Chest"
       },
       {
         id: 2,
         name: "Barbell Flat Bench Press",
         category: "chest",
-        muscle: "Middle & Lower Chest, Triceps",
+        muscle: "Mid/Lower Pectoralis Major & Triceps",
         equipment: "Barbell & Flat Bench",
         setsReps: "4 Sets × 6-10 Reps",
-        cue: "Plant feet firmly on the floor. Grip the bar slightly wider than shoulder width. Lower bar smoothly to mid-chest while tucking elbows at roughly 45 degrees.",
-        mistake: "Flaring elbows out at 90 degrees, which causes rotator cuff shoulder impingement.",
-        badge: "Strength Core"
+        animType: "bench",
+        steps: [
+          "Lie flat, eyes aligned under the bar, grip slightly wider than shoulder-width.",
+          "Unrack bar, breathe in, brace core, and pull shoulder blades tightly together.",
+          "Lower bar in a controlled diagonal bar-path touching mid-to-lower sternum.",
+          "Drive feet into the ground and press the bar back up over shoulders."
+        ],
+        mistake: "Bouncing bar off the chest and tucking elbows too late.",
+        badge: "Chest Mass"
       },
       {
         id: 3,
-        name: "Cable Chest Fly (High-to-Low)",
-        category: "chest",
-        muscle: "Lower & Inner Chest",
-        equipment: "Dual Cable Pulley",
-        setsReps: "3 Sets × 12-15 Reps",
-        cue: "Stand slightly forward with a staggered stance. Keep a slight bend in your elbows and bring your hands down and together in front of your hips, squeezing hard for 1 second.",
-        mistake: "Bending elbows too much turning it into a press instead of a fly.",
-        badge: "Peak Contraction"
+        name: "Wide-Grip Lat Pulldown",
+        category: "back",
+        muscle: "Latissimus Dorsi (Lats Width) & Biceps",
+        equipment: "Cable Lat Machine & Wide Bar",
+        setsReps: "4 Sets × 10-12 Reps",
+        animType: "pulldown",
+        steps: [
+          "Secure thighs tightly under the roller pads.",
+          "Grip bar wider than shoulder-width with thumbless or standard grip.",
+          "Lean back slightly (10-15°), depress scapula, and pull elbows down into your back pockets.",
+          "Squeeze lats hard at upper-chest level, then return up with a 2-second stretch."
+        ],
+        mistake: "Swinging torso violently backward to use bodyweight momentum.",
+        badge: "V-Taper Lats"
       },
       {
         id: 4,
-        name: "Lat Pulldown (Wide Grip)",
-        category: "back",
-        muscle: "Latissimus Dorsi (Lats width) & Biceps",
-        equipment: "Cable Lat Machine",
-        setsReps: "4 Sets × 10-12 Reps",
-        cue: "Slight lean back (10-15°). Drive your elbows down towards your hips rather than pulling with your biceps. Touch upper chest gently.",
-        mistake: "Swinging the upper body aggressively backward using momentum.",
-        badge: "V-Taper King"
-      },
-      {
-        id: 5,
-        name: "Chest-Supported Dumbbell Row",
-        category: "back",
-        muscle: "Upper Back, Rhomboids, Rear Delts & Lats",
-        equipment: "Incline Bench & Dumbbells",
-        setsReps: "3-4 Sets × 8-12 Reps",
-        cue: "Lie chest down on an incline bench. Pull dumbbells up towards your waist while squeezing your shoulder blades together at the top.",
-        mistake: "Jerking the neck or lifting chest off the bench pad.",
-        badge: "Back Thickness"
-      },
-      {
-        id: 6,
-        name: "Overhead Dumbbell Shoulder Press",
-        category: "shoulders",
-        muscle: "Anterior (Front) & Lateral Deltoids",
-        equipment: "Dumbbells & 90° Seated Bench",
-        setsReps: "4 Sets × 8-10 Reps",
-        cue: "Keep core tight. Press dumbbells upward in a slight natural arc. Lower dumbbells until upper arms are parallel to the floor.",
-        mistake: "Arching lower back excessively to cheat heavier weight.",
-        badge: "Shoulder Boulder"
-      },
-      {
-        id: 7,
-        name: "Dumbbell Lateral Raise",
-        category: "shoulders",
-        muscle: "Lateral (Side) Deltoid for Shoulder Width",
-        equipment: "Dumbbells",
-        setsReps: "4 Sets × 12-15 Reps",
-        cue: "Lean torso slightly forward. Lead with your elbows and raise arms out to side till shoulder level. Pour water mental cue.",
-        mistake: "Shrugging traps up towards ears or swinging body for momentum.",
-        badge: "Width Builder"
-      },
-      {
-        id: 8,
         name: "Barbell Back Squat",
         category: "legs",
-        muscle: "Quadriceps, Glutes, Hamstrings, Core",
-        equipment: "Squat Rack & Barbell",
+        muscle: "Quadriceps, Glutes, Hamstrings & Core",
+        equipment: "Squat Rack & Olympic Barbell",
         setsReps: "4 Sets × 6-8 Reps",
-        cue: "Rest bar on upper traps. Break at hips and knees simultaneously. Push knees outwards inline with toes, descend until hips break parallel.",
-        mistake: "Knees caving inwards (valgus collapse) or heels lifting off the floor.",
+        animType: "squat",
+        steps: [
+          "Place bar firmly across upper trapezius with hands gripping tight.",
+          "Feet shoulder-width apart, toes angled slightly out at 15-30 degrees.",
+          "Inhale into your diaphragm, push hips back, and break knees out in line with toes.",
+          "Descend until hip crease is below knee level (parallel), then drive upwards through mid-foot."
+        ],
+        mistake: "Knees collapsing inward (valgus) or lifting heels off the floor.",
         badge: "King of Legs"
       },
       {
-        id: 9,
+        id: 5,
+        name: "Seated Dumbbell Shoulder Press",
+        category: "shoulders",
+        muscle: "Anterior Delts, Lateral Delts & Triceps",
+        equipment: "Adjustable Bench at 85° & Dumbbells",
+        setsReps: "4 Sets × 8-10 Reps",
+        animType: "bench",
+        steps: [
+          "Sit back firmly with spine neutral and core braced.",
+          "Kick dumbbells up to shoulder level with palms facing slightly forward (scapular plane).",
+          "Press overhead smoothly until arms are extended, avoiding clanking weights.",
+          "Lower down under control until elbows reach 90 degrees."
+        ],
+        mistake: "Excessive lower back arching due to weights being too heavy.",
+        badge: "Shoulder Boulder"
+      },
+      {
+        id: 6,
+        name: "Dumbbell Lateral Raise",
+        category: "shoulders",
+        muscle: "Lateral Deltoid (Shoulder 3D Width)",
+        equipment: "Light-to-Moderate Dumbbells",
+        setsReps: "4 Sets × 12-15 Reps",
+        animType: "lateral",
+        steps: [
+          "Stand tall or lean slightly forward with dumbbells at your sides.",
+          "Slight bend in elbows (10°), lead with your elbows rather than wrists.",
+          "Raise dumbbells out to shoulder height in the scapular plane (30° forward).",
+          "Pause for a brief microsecond at peak contraction and lower slowly."
+        ],
+        mistake: "Shrugging the traps up towards ears or swinging the hips for momentum.",
+        badge: "Side Delts"
+      },
+      {
+        id: 7,
+        name: "Standing Barbell Bicep Curl",
+        category: "arms",
+        muscle: "Biceps Brachii (Short & Long Heads)",
+        equipment: "EZ Bar or Straight Barbell",
+        setsReps: "3 Sets × 10-12 Reps",
+        animType: "curl",
+        steps: [
+          "Stand with feet shoulder-width, grip bar underhand at shoulder-width.",
+          "Pin elbows tight against ribs and brace core.",
+          "Curl bar upward towards upper chest while keeping elbows locked in place.",
+          "Squeeze biceps hard at the peak, then take a full 2-second negative back down."
+        ],
+        mistake: "Swinging the lower back or drifting elbows forward during the curl.",
+        badge: "Arm Peak"
+      },
+      {
+        id: 8,
         name: "Romanian Deadlift (RDL)",
         category: "legs",
-        muscle: "Hamstrings, Gluteus Maximus, Lower Back",
+        muscle: "Hamstrings, Gluteus Maximus & Lower Back",
         equipment: "Barbell or Heavy Dumbbells",
         setsReps: "3-4 Sets × 8-10 Reps",
-        cue: "Slight knee bend that stays locked. Push hips as far back as possible as if touching a wall behind you with glutes until hamstrings stretch fully.",
-        mistake: "Rounding lower back instead of hip-hinging.",
-        badge: "Hamstring Power"
+        animType: "squat",
+        steps: [
+          "Stand upright holding bar at thighs with shoulder-width grip.",
+          "Unlock knees slightly (keep this angle fixed throughout).",
+          "Push hips as far back as possible toward the wall behind you.",
+          "Lower bar along shins until you feel a deep stretch in hamstrings, then thrust hips forward."
+        ],
+        mistake: "Rounding the spinal lumbar instead of hinging strictly at the hips.",
+        badge: "Hamstrings & Glutes"
       },
       {
-        id: 10,
-        name: "Incline Dumbbell Bicep Curl",
-        category: "arms",
-        muscle: "Biceps (Long Head peak)",
-        equipment: "Dumbbells & 45° Incline Bench",
-        setsReps: "3 Sets × 10-12 Reps",
-        cue: "Sit back on incline. Let arms hang straight down for deep stretch. Curl dumbbell up without swinging elbows forward.",
-        mistake: "Allowing shoulders to roll forward during the curl.",
-        badge: "Bicep Peak"
-      },
-      {
-        id: 11,
-        name: "Tricep Rope Pushdown",
-        category: "arms",
-        muscle: "Triceps (Lateral & Medial Heads)",
-        equipment: "Cable Pulley & Rope",
-        setsReps: "4 Sets × 12-15 Reps",
-        cue: "Pin elbows firmly against your ribs. Push rope down and spread hands apart at the very bottom for maximum triceps squeeze.",
-        mistake: "Elbows drifting forward and backwards like a pendulum.",
-        badge: "Arm Definition"
-      },
-      {
-        id: 12,
-        name: "Hanging Leg / Knee Raise",
+        id: 9,
+        name: "Hanging Knee / Leg Raise",
         category: "abs",
-        muscle: "Rectus Abdominis (Lower Core) & Hip Flexors",
-        equipment: "Pull-up Bar",
+        muscle: "Rectus Abdominis (Lower Core) & Obliques",
+        equipment: "Pull-Up Bar",
         setsReps: "3 Sets × 12-15 Reps",
-        cue: "Hang dead straight without swinging. Curl pelvis upwards towards chest, don't just lift your legs.",
-        mistake: "Using pendulum momentum swing instead of abdominal curl.",
-        badge: "Core Strength"
+        animType: "abs",
+        steps: [
+          "Hang from pull-up bar with overhand grip and engaged shoulders.",
+          "Do not swing. Roll pelvis upward towards your chest to curl your lower spine.",
+          "Lift knees towards ribs and pause for 1 second at top contraction.",
+          "Lower legs smoothly without letting your body swing like a pendulum."
+        ],
+        mistake: "Just lifting legs using hip-flexors instead of rolling the pelvis with abs.",
+        badge: "Core Six-Pack"
       }
     ];
 
-    // Render Exercises Function
+    function getExerciseAnimationSVG(animType, category) {
+      if (animType === 'bench') {
+        return `
+          <div class="h-44 bg-brand-dark/80 rounded-xl relative overflow-hidden flex items-center justify-center border border-brand-border">
+            <svg viewBox="0 0 200 120" class="w-48 h-36">
+              <rect x="30" y="80" width="140" height="8" rx="4" fill="#1f293d"/>
+              <rect x="50" y="88" width="6" height="20" fill="#161c2b"/>
+              <rect x="144" y="88" width="6" height="20" fill="#161c2b"/>
+              <ellipse cx="100" cy="72" rx="35" ry="12" fill="#2a3754"/>
+              <ellipse cx="100" cy="70" rx="20" ry="6" fill="#CCFF00" class="muscle-highlight"/>
+              <g class="anim-bench">
+                <rect x="25" y="25" width="150" height="4" rx="2" fill="#E2E8F0"/>
+                <rect x="20" y="15" width="10" height="24" rx="3" fill="#CCFF00"/>
+                <rect x="170" y="15" width="10" height="24" rx="3" fill="#CCFF00"/>
+                <circle cx="70" cy="27" r="5" fill="#f3e5ab"/>
+                <circle cx="130" cy="27" r="5" fill="#f3e5ab"/>
+              </g>
+            </svg>
+            <span class="absolute bottom-2 right-2 text-[9px] font-bold uppercase tracking-wider text-brand-lime bg-brand-card/90 px-2 py-0.5 rounded border border-brand-border">
+              <i class="fa-solid fa-arrows-up-down mr-1"></i> Form Loop
+            </span>
+          </div>`;
+      } else if (animType === 'squat') {
+        return `
+          <div class="h-44 bg-brand-dark/80 rounded-xl relative overflow-hidden flex items-center justify-center border border-brand-border">
+            <svg viewBox="0 0 200 120" class="w-48 h-36">
+              <line x1="20" y1="110" x2="180" y2="110" stroke="#1f293d" stroke-width="3"/>
+              <g class="anim-squat">
+                <circle cx="100" cy="30" r="10" fill="#f3e5ab"/>
+                <rect x="94" y="40" width="12" height="35" rx="4" fill="#2a3754"/>
+                <ellipse cx="100" cy="75" rx="14" ry="10" fill="#CCFF00" class="muscle-highlight"/>
+                <rect x="40" y="38" width="120" height="5" rx="2" fill="#E2E8F0"/>
+                <rect x="32" y="27" width="10" height="26" rx="3" fill="#CCFF00"/>
+                <rect x="158" y="27" width="10" height="26" rx="3" fill="#CCFF00"/>
+                <line x1="94" y1="75" x2="80" y2="110" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+                <line x1="106" y1="75" x2="120" y2="110" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+              </g>
+            </svg>
+            <span class="absolute bottom-2 right-2 text-[9px] font-bold uppercase tracking-wider text-brand-lime bg-brand-card/90 px-2 py-0.5 rounded border border-brand-border">
+              <i class="fa-solid fa-arrows-up-down mr-1"></i> Depth Loop
+            </span>
+          </div>`;
+      } else if (animType === 'pulldown') {
+        return `
+          <div class="h-44 bg-brand-dark/80 rounded-xl relative overflow-hidden flex items-center justify-center border border-brand-border">
+            <svg viewBox="0 0 200 120" class="w-48 h-36">
+              <circle cx="100" cy="15" r="8" fill="#1f293d"/>
+              <line x1="100" y1="20" x2="100" y2="40" stroke="#94a3b8" stroke-width="2"/>
+              <circle cx="100" cy="65" r="9" fill="#f3e5ab"/>
+              <rect x="94" y="74" width="12" height="30" rx="3" fill="#2a3754"/>
+              <path d="M 85 75 Q 70 88 88 100" stroke="#CCFF00" stroke-width="5" fill="none" class="muscle-highlight"/>
+              <path d="M 115 75 Q 130 88 112 100" stroke="#CCFF00" stroke-width="5" fill="none" class="muscle-highlight"/>
+              <g class="anim-pulldown">
+                <path d="M 30 35 Q 100 45 170 35" stroke="#E2E8F0" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <circle cx="45" cy="38" r="4" fill="#f3e5ab"/>
+                <circle cx="155" cy="38" r="4" fill="#f3e5ab"/>
+              </g>
+            </svg>
+            <span class="absolute bottom-2 right-2 text-[9px] font-bold uppercase tracking-wider text-brand-lime bg-brand-card/90 px-2 py-0.5 rounded border border-brand-border">
+              <i class="fa-solid fa-arrows-down-to-line mr-1"></i> Lat Drive
+            </span>
+          </div>`;
+      } else if (animType === 'curl') {
+        return `
+          <div class="h-44 bg-brand-dark/80 rounded-xl relative overflow-hidden flex items-center justify-center border border-brand-border">
+            <svg viewBox="0 0 200 120" class="w-48 h-36">
+              <circle cx="75" cy="30" r="10" fill="#f3e5ab"/>
+              <rect x="68" y="40" width="14" height="45" rx="3" fill="#2a3754"/>
+              <circle cx="85" cy="58" r="7" fill="#CCFF00" class="muscle-highlight"/>
+              <line x1="78" y1="45" x2="85" y2="65" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+              <g class="anim-curl">
+                <line x1="85" y1="65" x2="115" y2="90" stroke="#f3e5ab" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="115" cy="90" r="8" fill="#CCFF00"/>
+              </g>
+            </svg>
+            <span class="absolute bottom-2 right-2 text-[9px] font-bold uppercase tracking-wider text-brand-lime bg-brand-card/90 px-2 py-0.5 rounded border border-brand-border">
+              <i class="fa-solid fa-rotate-right mr-1"></i> Peak Arc
+            </span>
+          </div>`;
+      } else if (animType === 'lateral') {
+        return `
+          <div class="h-44 bg-brand-dark/80 rounded-xl relative overflow-hidden flex items-center justify-center border border-brand-border">
+            <svg viewBox="0 0 200 120" class="w-48 h-36">
+              <circle cx="100" cy="30" r="10" fill="#f3e5ab"/>
+              <rect x="92" y="42" width="16" height="45" rx="4" fill="#2a3754"/>
+              <circle cx="88" cy="46" r="6" fill="#CCFF00" class="muscle-highlight"/>
+              <circle cx="112" cy="46" r="6" fill="#CCFF00" class="muscle-highlight"/>
+              <g class="anim-lateral">
+                <line x1="88" y1="46" x2="45" y2="85" stroke="#f3e5ab" stroke-width="5" stroke-linecap="round"/>
+                <rect x="36" y="80" width="10" height="15" rx="3" fill="#CCFF00"/>
+              </g>
+              <g style="transform-origin: 80% 20%; animation: lateralMove 2.2s infinite ease-in-out reverse;">
+                <line x1="112" y1="46" x2="155" y2="85" stroke="#f3e5ab" stroke-width="5" stroke-linecap="round"/>
+                <rect x="154" y="80" width="10" height="15" rx="3" fill="#CCFF00"/>
+              </g>
+            </svg>
+            <span class="absolute bottom-2 right-2 text-[9px] font-bold uppercase tracking-wider text-brand-lime bg-brand-card/90 px-2 py-0.5 rounded border border-brand-border">
+              <i class="fa-solid fa-arrows-up-down-left-right mr-1"></i> Abduction
+            </span>
+          </div>`;
+      } else {
+        return `
+          <div class="h-44 bg-brand-dark/80 rounded-xl relative overflow-hidden flex items-center justify-center border border-brand-border">
+            <svg viewBox="0 0 200 120" class="w-48 h-36">
+              <line x1="20" y1="90" x2="180" y2="90" stroke="#1f293d" stroke-width="3"/>
+              <g class="anim-abs">
+                <circle cx="100" cy="50" r="10" fill="#f3e5ab"/>
+                <rect x="94" y="60" width="12" height="28" rx="3" fill="#2a3754"/>
+                <rect x="96" y="64" width="8" height="15" fill="#CCFF00" class="muscle-highlight"/>
+              </g>
+            </svg>
+            <span class="absolute bottom-2 right-2 text-[9px] font-bold uppercase tracking-wider text-brand-lime bg-brand-card/90 px-2 py-0.5 rounded border border-brand-border">
+              <i class="fa-solid fa-compress mr-1"></i> Contraction
+            </span>
+          </div>`;
+      }
+    }
+
     function renderExercises(list) {
       const container = document.getElementById('exerciseGrid');
       if (list.length === 0) {
@@ -405,9 +593,11 @@
       }
 
       container.innerHTML = list.map(item => `
-        <div class="bg-brand-card hover:bg-brand-cardHover rounded-2xl p-6 border border-brand-border hover:border-brand-lime/40 transition duration-300 flex flex-col justify-between group">
+        <div class="bg-brand-card hover:bg-brand-cardHover rounded-2xl p-6 border border-brand-border hover:border-brand-lime/40 transition duration-300 flex flex-col justify-between group shadow-xl">
           <div>
-            <div class="flex items-center justify-between mb-3">
+            ${getExerciseAnimationSVG(item.animType, item.category)}
+
+            <div class="flex items-center justify-between mt-4 mb-2">
               <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-brand-lime/10 text-brand-lime border border-brand-lime/20">${item.category}</span>
               <span class="text-[10px] font-bold uppercase text-gray-400 bg-brand-dark px-2.5 py-1 rounded-md border border-brand-border">${item.badge}</span>
             </div>
@@ -419,7 +609,7 @@
               <span>${item.muscle}</span>
             </div>
 
-            <div class="bg-brand-dark p-3.5 rounded-xl border border-brand-border mb-4 space-y-2 text-xs">
+            <div class="bg-brand-dark p-3 rounded-xl border border-brand-border mb-4 space-y-1.5 text-xs">
               <div class="flex justify-between">
                 <span class="text-gray-400">Equipment:</span>
                 <span class="text-white font-medium">${item.equipment}</span>
@@ -429,21 +619,73 @@
                 <span class="text-brand-lime font-bold">${item.setsReps}</span>
               </div>
             </div>
-
-            <div class="text-xs text-gray-300 space-y-2 mb-4">
-              <p><strong class="text-white">Pro Cue:</strong> ${item.cue}</p>
-              <p class="text-red-400/90"><strong class="text-red-400">Avoid Mistake:</strong> ${item.mistake}</p>
-            </div>
           </div>
 
-          <button onclick="startRestTimer(60)" class="w-full py-2.5 rounded-xl bg-brand-border hover:bg-brand-lime hover:text-black text-gray-300 font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
-            <i class="fa-solid fa-stopwatch"></i> Start 60s Rest Set
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <button onclick="openModal(${item.id})" class="w-full py-2.5 rounded-xl bg-brand-lime text-black font-extrabold text-xs uppercase tracking-wider hover:bg-brand-limeHover transition flex items-center justify-center gap-1.5 shadow-md">
+              <i class="fa-solid fa-circle-play"></i> Form Cues
+            </button>
+            <button onclick="startRestTimer(60)" class="w-full py-2.5 rounded-xl bg-brand-border hover:bg-brand-card hover:text-brand-lime text-gray-300 font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-stopwatch"></i> 60s Rest
+            </button>
+          </div>
         </div>
       `).join('');
     }
 
-    // Filter Logic
+    function openModal(id) {
+      const item = exercises.find(e => e.id === id);
+      if (!item) return;
+
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
+        <div class="mb-4">
+          <span class="text-xs font-bold uppercase text-brand-lime">${item.category} • ${item.badge}</span>
+          <h2 class="font-teko text-4xl font-bold text-white uppercase mt-0.5 leading-none">${item.name}</h2>
+          <p class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-bullseye text-brand-lime mr-1"></i> Target: ${item.muscle}</p>
+        </div>
+
+        ${getExerciseAnimationSVG(item.animType, item.category)}
+
+        <div class="mt-6 space-y-4">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-lime mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-list-check"></i> Step-By-Step Execution
+            </h4>
+            <div class="space-y-2 text-xs text-gray-300">
+              ${item.steps.map((st, i) => `
+                <div class="flex items-start gap-2.5 p-2 rounded-lg bg-brand-dark border border-brand-border">
+                  <span class="w-5 h-5 rounded-full bg-brand-lime/10 text-brand-lime font-bold flex items-center justify-center shrink-0 text-[11px]">${i + 1}</span>
+                  <span>${st}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-xs">
+            <span class="font-bold text-red-400 uppercase tracking-wider block mb-1">
+              <i class="fa-solid fa-triangle-exclamation mr-1"></i> Common Form Mistake to Avoid:
+            </span>
+            <span class="text-gray-300">${item.mistake}</span>
+          </div>
+        </div>
+
+        <button onclick="closeModal()" class="w-full mt-6 py-3 rounded-xl bg-brand-border hover:bg-brand-lime hover:text-black text-white font-bold text-xs uppercase tracking-wider transition">
+          Got It, Close Guide
+        </button>
+      `;
+
+      const modal = document.getElementById('demoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('demoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
     function filterExercises(cat) {
       document.querySelectorAll('.cat-btn').forEach(b => {
         b.classList.remove('bg-brand-lime', 'text-black');
@@ -459,7 +701,6 @@
       }
     }
 
-    // Search Logic
     document.getElementById('exerciseSearch').addEventListener('input', function(e) {
       const q = e.target.value.toLowerCase();
       const filtered = exercises.filter(ex => 
@@ -470,7 +711,6 @@
       renderExercises(filtered);
     });
 
-    // Rest Timer Logic
     let timerInterval = null;
     let secondsLeft = 60;
 
@@ -502,7 +742,6 @@
         `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     }
 
-    // Health / Calorie Calculator
     function calculateFitnessMetrics() {
       const w = parseFloat(document.getElementById('calcWeight').value) || 75;
       const h = parseFloat(document.getElementById('calcHeight').value) || 175;
@@ -521,7 +760,6 @@
       labelEl.innerText = bmiText;
       labelEl.className = `text-xs font-semibold ${bmiColor}`;
 
-      // BMR approx
       const bmr = 10 * w + 6.25 * h - 5 * 25 + 5;
       const maint = Math.round(bmr * act);
       const cut = maint - 500;
@@ -530,7 +768,6 @@
       document.getElementById('resCut').innerText = `${cut.toLocaleString()} kcal`;
     }
 
-    // Initial Render
     renderExercises(exercises);
   </script>
 </body>
